@@ -98,6 +98,7 @@ public class Day03 implements Day {
             }
         }
 
+        //First tried int because.. well too big for int so long worked better
         long result = 1;
         for (int i = 0; i < hit.size(); i++) {
             result = result * hit.get(i);
