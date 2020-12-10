@@ -57,12 +57,12 @@ public class App {
     }
 
     public static void main(String[] args) {
-        int day = 9;
+        int day = 10;
         if(args.length != 0){
             day = Integer.parseInt(args[0]);
         }
 
-        int part = 2;
+        int part = 1;
         if(args.length > 1){
             part = Integer.parseInt(args[1]);
         }

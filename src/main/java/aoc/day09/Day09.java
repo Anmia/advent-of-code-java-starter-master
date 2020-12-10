@@ -2,6 +2,8 @@ package aoc.day09;
 
 import aoc.Day;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Day09 implements Day {
@@ -132,34 +134,38 @@ What is the encryption weakness in your XMAS-encrypted list of numbers?
         long top = 0;
         long bottom = 0;
 
+        //SMALLEST AND LARGEST!!!!!
+        ArrayList<Long> tickerSteps = new ArrayList<>();
+
         for (int i = 0; i < invalidPlace - 1; i++) {
             bottom = Long.parseLong(input.get(i));
             ticker = Long.parseLong(input.get(i));
+            tickerSteps.add(bottom);
 
             for (int j = i + 1; j < invalidPlace; j++) {
                 top = Long.parseLong(input.get(j));
                 ticker = ticker + top;
-
-
+                tickerSteps.add(top);
                 if (ticker == invalid) {
                     // end all loops
                     i = invalidPlace;
                     j = invalidPlace;
+                    result = ticker;
                 } else if (ticker > invalid) {
                     // move on to next starting point
                     j = invalidPlace;
-                    //System.out.println(bottom + " " + top);
-                    System.out.println(ticker - invalid);
-                } else {
-                    //nothing
+                    //Empty result list
+                    tickerSteps.clear();
                 }
             }
         }
-        result = bottom + top;
+        /*
+        Sort and get lowest and highest values
+        Did this wrong at first nd did first andd last :(
+         */
 
-        if (result == ticker) {
-            System.out.println("woopi");
-        }
+        Collections.sort(tickerSteps);
+        result = tickerSteps.get(0) + tickerSteps.get(tickerSteps.size() - 1);
 
         return "" + result;
     }

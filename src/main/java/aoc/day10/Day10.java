@@ -19,15 +19,27 @@ public class Day10 implements Day {
 
         Collections.sort(addapters);
 
-        for (int x : addapters) {
+        int start = 0;
+        int diffs[] = {0, 0, 0};
 
+        for (int x : addapters) {
+            if (x - start <= 3) {
+                diffs[(x - start) - 1]++;
+                start = x;
+            }
         }
+
+        result = diffs[0] * (diffs[2] + 1);
 
         return "" + result;
     }
 
     @Override
     public String part2(List<String> input) {
+        /*
+        TREES TOO MANY TREES
+         */
+
         int result = 0;
         return "" + result;
     }
