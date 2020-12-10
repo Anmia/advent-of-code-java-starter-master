@@ -12,7 +12,7 @@ public class Day06 implements Day {
 
         String block = "";
 
-        String check = "";
+        //String check = "";
 
         for (int i = 0; i < input.size(); i++) {
             // gather blocks as single strings
@@ -22,15 +22,11 @@ public class Day06 implements Day {
                 for (char x = 'a'; x <= 'z'; x++) {
                     if (block.indexOf(x) != -1) {
                         result++;
-                        check = check + x;
+                        //check = check + x;
                     }
 
                 }
-                System.out.println(check + " " + check.length() + " " + result);
-                System.out.println(block);
-
-
-                check = "";
+                //check = "";
                 block = "";
             }
         }

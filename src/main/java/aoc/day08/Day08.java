@@ -2,6 +2,7 @@ package aoc.day08;
 
 import aoc.Day;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Day08 implements Day {
@@ -9,31 +10,46 @@ public class Day08 implements Day {
     @Override
     public String part1(List<String> input) {
         int result = 0;
+        int acc;
+        int jmp;
+        char action = ' ';
 
-        String block = "";
+        int listLen = input.size();
+        boolean[] visited = new boolean[listLen];
+        Arrays.fill(visited, false);
+        boolean done = false;
+        int step = 0;
 
-        String check = "";
 
-        for (int i = 0; i < input.size(); i++) {
-            // gather blocks as single strings
-            block = block + input.get(i);
+        while (!done) {
+            if (visited[step]) {
+                done = true;
+                System.out.println("DONE!");
+            } else {
 
-            if (input.get(i).isEmpty() == true || i == input.size() - 1) {
-                for (char x = 'a'; x <= 'z'; x++) {
-                    if (block.indexOf(x) != -1) {
-                        result++;
-                        check = check + x;
-                    }
+                action = input.get(step).charAt(0);
+                System.out.println(action);
+                if (action == 'a') {
+                    acc = Integer.parseInt(input.get(step).substring(4, input.get(step).length()));
 
+                    visited[step] = true;
+                    result = result + acc;
+                    step++;
+                } else if (action== 'j') {
+                    jmp = Integer.parseInt(input.get(step).substring(4, input.get(step).length()));
+
+                    visited[step] = true;
+                    step = step + jmp;
+                } else if (action == 'n') {
+                    visited[step] = true;
+                    step++;
                 }
-                System.out.println(check + " " + check.length() + " " + result);
-                System.out.println(block);
 
+                System.out.println(step + " " + result + " " + input.get(step));
 
-                check = "";
-                block = "";
             }
         }
+
 
         return "" + result;
     }
