@@ -13,6 +13,10 @@ import aoc.day07.Day07;
 import aoc.day08.Day08;
 import aoc.day09.Day09;
 import aoc.day10.Day10;
+import aoc.day11.Day11;
+import aoc.day12.Day12;
+import aoc.day13.Day13;
+import aoc.day14.Day14;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -40,6 +44,10 @@ public class App {
         DAYS.put(8, new Day08());
         DAYS.put(9, new Day09());
         DAYS.put(10, new Day10());
+        DAYS.put(11, new Day11());
+        DAYS.put(12, new Day12());
+        DAYS.put(13, new Day13());
+        DAYS.put(14, new Day14());
     }
 
     private static List<String> loadInput(int day){
@@ -57,7 +65,7 @@ public class App {
     }
 
     public static void main(String[] args) {
-        int day = 10;
+        int day = 14;
         if(args.length != 0){
             day = Integer.parseInt(args[0]);
         }

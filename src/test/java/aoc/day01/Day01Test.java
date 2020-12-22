@@ -2,6 +2,7 @@ package aoc.day01;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -12,24 +13,42 @@ public class Day01Test {
     @Test
     public void testPart1(){
         // Given
-        List<String> input = Collections.singletonList("test");
+        ArrayList<String> block = new ArrayList<>();
+
+        block.add("1721");
+        block.add("979");
+        block.add("366");
+        block.add("299");
+        block.add("675");
+        block.add("1456");
+
+        List<String> input = block;
 
         // When
         String result = new Day01().part1(input);
 
         // Then
-        assertEquals(input.get(0), result);
+        assertEquals("514579", result);
     }
 
     @Test
     public void testPart2(){
         // Given
-        List<String> input = Collections.singletonList("test");
+        ArrayList<String> block = new ArrayList<>();
+
+        block.add("1721");
+        block.add("979");
+        block.add("366");
+        block.add("299");
+        block.add("675");
+        block.add("1456");
+
+        List<String> input = block;
 
         // When
         String result = new Day01().part2(input);
 
         // Then
-        assertEquals(input.get(0), result);
+        assertEquals("241861950", result);
     }
 }
